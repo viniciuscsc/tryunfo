@@ -79,7 +79,6 @@ class App extends React.Component {
       cardAttr2,
       cardAttr3,
       cardTrunfo,
-      hasTrunfo,
     } = this.state;
 
     const newCard = {
