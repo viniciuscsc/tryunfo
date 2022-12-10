@@ -4,49 +4,49 @@ import Card from './components/Card';
 
 class App extends React.Component {
   state = {
-    name: '',
-    description: '',
-    attr1: 0,
-    attr2: 0,
-    attr3: 0,
-    image: '',
-    rare: 'normal',
-    trunfo: false,
+    cardName: '',
+    cardDescription: '',
+    cardAttr1: 0,
+    cardAttr2: 0,
+    cardAttr3: 0,
+    cardImage: '',
+    cardRare: 'normal',
+    cardTrunfo: false,
     isSaveButtonDisabled: true,
     deck: [],
   };
 
   handleSaveButton = () => {
     const {
-      name,
-      description,
-      image,
-      rare,
-      attr1,
-      attr2,
-      attr3,
+      cardName,
+      cardDescription,
+      cardImage,
+      cardRare,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
     } = this.state;
 
     const sumCeiling = 210;
     const attributeCeiling = 90;
 
-    const nonEmptyFieldsValidation = name.length > 0
-      && description.length > 0
-      && image.length > 0
-      && rare.length > 0;
+    const nonEmptyFieldsValidation = cardName.length > 0
+      && cardDescription.length > 0
+      && cardImage.length > 0
+      && cardRare.length > 0;
 
-    const attributeSumValidation = Number(attr1)
-      + Number(attr2)
-      + Number(attr3)
+    const attributeSumValidation = Number(cardAttr1)
+      + Number(cardAttr2)
+      + Number(cardAttr3)
       <= sumCeiling;
 
-    const attributeCeilingValidation = attr1 <= attributeCeiling
-      && attr2 <= attributeCeiling
-      && attr3 <= attributeCeiling;
+    const attributeCeilingValidation = cardAttr1 <= attributeCeiling
+      && cardAttr2 <= attributeCeiling
+      && cardAttr3 <= attributeCeiling;
 
-    const nonNegativeAttributesValidation = attr1 >= 0
-    && attr2 >= 0
-    && attr3 >= 0;
+    const nonNegativeAttributesValidation = cardAttr1 >= 0
+    && cardAttr2 >= 0
+    && cardAttr3 >= 0;
 
     this.setState({
       isSaveButtonDisabled: !(nonEmptyFieldsValidation
@@ -70,25 +70,25 @@ class App extends React.Component {
 
   onSaveButtonClick = () => {
     const {
-      name,
-      description,
-      image,
-      rare,
-      attr1,
-      attr2,
-      attr3,
-      trunfo,
+      cardName,
+      cardDescription,
+      cardImage,
+      cardRare,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardTrunfo,
     } = this.state;
 
     const newCard = {
-      name,
-      description,
-      image,
-      rare,
-      attr1,
-      attr2,
-      attr3,
-      trunfo,
+      cardName,
+      cardDescription,
+      cardImage,
+      cardRare,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardTrunfo,
     };
 
     this.setState(
@@ -98,54 +98,54 @@ class App extends React.Component {
 
     this.setState(
       {
-        name: '',
-        description: '',
-        attr1: 0,
-        attr2: 0,
-        attr3: 0,
-        image: '',
-        rare: 'normal',
-        trunfo: false,
+        cardName: '',
+        cardDescription: '',
+        cardAttr1: 0,
+        cardAttr2: 0,
+        cardAttr3: 0,
+        cardImage: '',
+        cardRare: 'normal',
+        cardTrunfo: false,
       },
     );
   };
 
   render() {
     const {
-      name,
-      image,
-      description,
-      attr1,
-      attr2,
-      attr3,
-      rare,
-      trunfo,
+      cardName,
+      cardImage,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardRare,
+      cardTrunfo,
       isSaveButtonDisabled,
     } = this.state;
     return (
       <>
         <Form
-          name={ name }
-          description={ description }
-          attr1={ attr1 }
-          attr2={ attr2 }
-          attr3={ attr3 }
-          image={ image }
-          rare={ rare }
-          trunfo={ trunfo }
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
           onInputChange={ this.onInputChange }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
-          cardName={ name }
-          cardImage={ image }
-          cardDescription={ description }
-          cardAttr1={ attr1 }
-          cardAttr2={ attr2 }
-          cardAttr3={ attr3 }
-          cardRare={ rare }
-          cardTrunfo={ trunfo }
+          cardName={ cardName }
+          cardImage={ cardImage }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
         />
       </>
     );

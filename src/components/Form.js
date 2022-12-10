@@ -5,14 +5,14 @@ import Input from './Input';
 class Form extends React.Component {
   render() {
     const {
-      name,
-      description,
-      attr1,
-      attr2,
-      attr3,
-      image,
-      rare,
-      trunfo,
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
       // hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
@@ -24,58 +24,58 @@ class Form extends React.Component {
         <Input
           label="Nome: "
           type="text"
-          id="name"
+          id="cardName"
           dataTestId="name-input"
-          value={ name }
+          value={ cardName }
           onChange={ onInputChange }
         />
-        <label htmlFor="description">
+        <label htmlFor="cardDescription">
           {'Descrição: '}
           <textarea
-            id="description"
+            id="cardDescription"
             data-testid="description-input"
-            value={ description }
+            value={ cardDescription }
             onChange={ onInputChange }
           />
         </label>
         <Input
           label="Atributo 1: "
           type="number"
-          id="attr1"
+          id="cardAttr1"
           dataTestId="attr1-input"
-          value={ attr1 }
+          value={ cardAttr1 }
           onChange={ onInputChange }
         />
         <Input
           label="Atributo 2: "
           type="number"
-          id="attr2"
+          id="cardAttr2"
           dataTestId="attr2-input"
-          value={ attr2 }
+          value={ cardAttr2 }
           onChange={ onInputChange }
         />
         <Input
           label="Atributo 3: "
           type="number"
-          id="attr3"
+          id="cardAttr3"
           dataTestId="attr3-input"
-          value={ attr3 }
+          value={ cardAttr3 }
           onChange={ onInputChange }
         />
         <Input
           label="Imagem: "
           type="text"
-          id="image"
+          id="cardImage"
           dataTestId="image-input"
-          value={ image }
+          value={ cardImage }
           onChange={ onInputChange }
         />
-        <label htmlFor="rare">
+        <label htmlFor="cardRare">
           {'Raridade: '}
           <select
-            id="rare"
+            id="cardRare"
             data-testid="rare-input"
-            value={ rare }
+            value={ cardRare }
             onChange={ onInputChange }
           >
             <option value="normal">Normal</option>
@@ -84,13 +84,13 @@ class Form extends React.Component {
           </select>
         </label>
         <div>
-          <label htmlFor="trunfo">
+          <label htmlFor="cardTrunfo">
             {'Tryunfo: '}
             <input
               type="checkbox"
-              id="trunfo"
+              id="cardTrunfo"
               data-testid="trunfo-input"
-              checked={ trunfo }
+              checked={ cardTrunfo }
               onChange={ onInputChange }
             />
           </label>
@@ -110,14 +110,14 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  attr1: PropTypes.string.isRequired,
-  attr2: PropTypes.string.isRequired,
-  attr3: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  rare: PropTypes.string.isRequired,
-  trunfo: PropTypes.bool.isRequired,
+  cardName: PropTypes.string.isRequired,
+  cardDescription: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.string.isRequired,
+  cardAttr2: PropTypes.string.isRequired,
+  cardAttr3: PropTypes.string.isRequired,
+  cardImage: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
   // hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
