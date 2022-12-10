@@ -16,13 +16,13 @@ class Card extends React.Component {
 
     return (
       <>
-        <h2 data-testid="name-card">{cardName}</h2>
+        <h3 data-testid="name-card">{`Nome: ${cardName}`}</h3>
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
-        <p data-testid="description-card">{cardDescription}</p>
-        <p data-testid="attr1-card">{cardAttr1}</p>
-        <p data-testid="attr2-card">{cardAttr2}</p>
-        <p data-testid="attr3-card">{cardAttr3}</p>
-        <p data-testid="rare-card">{cardRare}</p>
+        <p data-testid="description-card">{`Descrição: ${cardDescription}`}</p>
+        <p data-testid="attr1-card">{`Atributo 01: ${cardAttr1}`}</p>
+        <p data-testid="attr2-card">{`Atributo 02: ${cardAttr2}`}</p>
+        <p data-testid="attr3-card">{`Atributo 03: ${cardAttr3}`}</p>
+        <p data-testid="rare-card">{`Raridade: ${cardRare}`}</p>
         {(cardTrunfo === true)
           ? (<p data-testid="trunfo-card">Super Trunfo</p>)
           : (<p />)}

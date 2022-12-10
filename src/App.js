@@ -13,6 +13,7 @@ class App extends React.Component {
     rare: 'normal',
     trunfo: false,
     isSaveButtonDisabled: true,
+    deck: [],
   };
 
   handleSaveButton = () => {
@@ -47,8 +48,6 @@ class App extends React.Component {
     && attr2 >= 0
     && attr3 >= 0;
 
-    console.log(nonNegativeAttributesValidation);
-
     this.setState({
       isSaveButtonDisabled: !(nonEmptyFieldsValidation
         && attributeSumValidation
@@ -69,6 +68,48 @@ class App extends React.Component {
     );
   };
 
+  onSaveButtonClick = () => {
+    const {
+      name,
+      description,
+      image,
+      rare,
+      attr1,
+      attr2,
+      attr3,
+      trunfo,
+    } = this.state;
+
+    const newCard = {
+      name,
+      description,
+      image,
+      rare,
+      attr1,
+      attr2,
+      attr3,
+      trunfo,
+    };
+
+    this.setState(
+      (prev) => ({
+        deck: [...prev.deck, newCard] }),
+    );
+
+    this.setState(
+      {
+        name: '',
+        description: '',
+        attr1: 0,
+        attr2: 0,
+        attr3: 0,
+        image: '',
+        rare: 'normal',
+        trunfo: false,
+      },
+    );
+  };
+
   render() {
     const {
       name,
@@ -84,8 +125,17 @@ class App extends React.Component {
     return (
       <>
         <Form
+          name={ name }
+          description={ description }
+          attr1={ attr1 }
+          attr2={ attr2 }
+          attr3={ attr3 }
+          image={ image }
+          rare={ rare }
+          trunfo={ trunfo }
           onInputChange={ this.onInputChange }
           isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
           cardName={ name }
