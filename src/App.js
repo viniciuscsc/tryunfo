@@ -6,9 +6,9 @@ class App extends React.Component {
   state = {
     name: '',
     description: '',
-    attr1: '',
-    attr2: '',
-    attr3: '',
+    attr1: 0,
+    attr2: 0,
+    attr3: 0,
     image: '',
     rare: 'normal',
     trunfo: false,
@@ -43,9 +43,11 @@ class App extends React.Component {
       && attr2 <= attributeCeiling
       && attr3 <= attributeCeiling;
 
-    const nonNegativeAttributesValidation = attr1 > 0
-    && attr2 > 0
-    && attr3 > 0;
+    const nonNegativeAttributesValidation = attr1 >= 0
+    && attr2 >= 0
+    && attr3 >= 0;
+
+    console.log(nonNegativeAttributesValidation);
 
     this.setState({
       isSaveButtonDisabled: !(nonEmptyFieldsValidation
