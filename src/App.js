@@ -92,8 +92,6 @@ class App extends React.Component {
       cardTrunfo,
     };
 
-    const hasTrunfoValidation = cardTrunfo === true;
-
     this.setState(
       (prev) => ({
         deck: [...prev.deck, newCard] }),
@@ -109,9 +107,33 @@ class App extends React.Component {
         cardImage: '',
         cardRare: 'normal',
         cardTrunfo: false,
-        hasTrunfo: hasTrunfoValidation,
       },
     );
+
+    if (cardTrunfo === true) {
+      this.setState({
+        hasTrunfo: true,
+      });
+    }
+  };
+
+  onDeleteButtonClick = ({ target }) => {
+    const { deck } = this.state;
+    const { name } = target;
+
+    const newDeck = deck.filter((card) => card.cardName !== name);
+
+    this.setState({
+      deck: newDeck,
+    });
+
+    const cardToDelet = deck.find((card) => card.cardName === name);
+
+    if (cardToDelet.cardTrunfo === true) {
+      this.setState({
+        hasTrunfo: false,
+      });
+    }
   };
 
   render() {
@@ -156,17 +178,26 @@ class App extends React.Component {
         />
         <h1>Todas as cartas</h1>
         {deck.map((card, index) => (
-          <Card
-            key={ index }
-            cardName={ card.cardName }
-            cardImage={ card.cardImage }
-            cardDescription={ card.cardDescription }
-            cardAttr1={ card.cardAttr1 }
-            cardAttr2={ card.cardAttr2 }
-            cardAttr3={ card.cardAttr3 }
-            cardRare={ card.cardRare }
-            cardTrunfo={ card.cardTrunfo }
-          />
+          <div key={ index }>
+            <Card
+              cardName={ card.cardName }
+              cardImage={ card.cardImage }
+              cardDescription={ card.cardDescription }
+              cardAttr1={ card.cardAttr1 }
+              cardAttr2={ card.cardAttr2 }
+              cardAttr3={ card.cardAttr3 }
+              cardRare={ card.cardRare }
+              cardTrunfo={ card.cardTrunfo }
+            />
+            <button
+              type="button"
+              name={ card.cardName }
+              data-testid="delete-button"
+              onClick={ this.onDeleteButtonClick }
+            >
+              Excluir
+            </button>
+          </div>
         ))}
       </>
     );
