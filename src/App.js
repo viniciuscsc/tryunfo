@@ -121,12 +121,6 @@ class App extends React.Component {
     const { deck } = this.state;
     const { name } = target;
 
-    const newDeck = deck.filter((card) => card.cardName !== name);
-
-    this.setState({
-      deck: newDeck,
-    });
-
     const cardToDelet = deck.find((card) => card.cardName === name);
 
     if (cardToDelet.cardTrunfo === true) {
@@ -134,6 +128,12 @@ class App extends React.Component {
         hasTrunfo: false,
       });
     }
+
+    const newDeck = deck.filter((card) => card.cardName !== name);
+
+    this.setState({
+      deck: newDeck,
+    });
   };
 
   render() {
