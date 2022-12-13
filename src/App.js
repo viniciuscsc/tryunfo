@@ -177,8 +177,8 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
         <h1>Todas as cartas</h1>
-        {deck.map((card, index) => (
-          <div key={ index }>
+        {deck.map((card) => (
+          <div key={ card.cardName }>
             <Card
               cardName={ card.cardName }
               cardImage={ card.cardImage }
